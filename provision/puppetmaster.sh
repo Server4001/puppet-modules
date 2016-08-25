@@ -27,7 +27,7 @@ fi
 
 # Install r10k.
 if [ ! -f /opt/puppetlabs/puppet/bin/r10k ]; then
-    /opt/puppetlabs/puppet/bin/gem install r10k
+    sudo /opt/puppetlabs/puppet/bin/gem install r10k
 fi
 
 # Create symlinks for puppet files.
