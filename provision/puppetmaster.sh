@@ -10,7 +10,7 @@ cp /vagrant/config/bash/puppetmaster.vagrant.bash_profile /home/vagrant/.bash_pr
 
 # Install vim, etc.
 if [ ! -f /usr/bin/vim ]; then
-    sudo yum install -y vim git
+    sudo yum install -y vim git tree man man-pages
 fi
 
 # Install puppet.
@@ -21,12 +21,21 @@ if [ ! -f /opt/puppetlabs/bin/puppet ]; then
     # Decrease puppetserver's heap size from 2g to 512mb.
     sudo cp /vagrant/config/puppet/puppetserver /etc/sysconfig/puppetserver
 
-    # Start puppetserver.
-    sudo service puppetserver start
-    sudo chkconfig puppetserver on
+    # Add autosign for the agent servers.
+    sudo cp /vagrant/config/puppet/autosign.conf /etc/puppetlabs/puppet/autosign.conf
 fi
 
 # Install r10k.
 if [ ! -f /opt/puppetlabs/puppet/bin/r10k ]; then
     /opt/puppetlabs/puppet/bin/gem install r10k
 fi
+
+# Create symlinks for puppet files.
+sudo rm -rf /etc/puppetlabs/code/
+sudo ln -s /vagrant/puppetmaster-server/puppetlabs/code/ /etc/puppetlabs/code
+sudo rm -rf /etc/puppetlabs/puppetserver/
+sudo ln -s /vagrant/puppetmaster-server/puppetlabs/puppetserver/ /etc/puppetlabs/puppetserver
+
+# Start puppetserver.
+sudo service puppetserver start
+sudo chkconfig puppetserver on

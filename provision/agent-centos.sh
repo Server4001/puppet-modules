@@ -9,5 +9,5 @@ sudo cp /vagrant/config/bash/agent-centos.root.bashrc /root/.bashrc
 
 # Install vim, etc.
 if [ ! -f /usr/bin/vim ]; then
-    sudo yum install -y vim git
+    sudo yum install -y vim git tree man man-pages
 fi

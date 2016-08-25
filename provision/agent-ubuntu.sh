@@ -10,5 +10,5 @@ sudo cp /vagrant/config/bash/agent-ubuntu.root.bashrc /root/.bashrc
 # Install git, etc.
 if [ ! -f /usr/bin/git ]; then
     sudo apt-get update
-    sudo apt-get install -y git
+    sudo apt-get install -y git tree
 fi
