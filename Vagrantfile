@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
 
     master.vm.provision :shell, path: "./provision/puppetmaster.sh", privileged: false
     master.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777,fmode=777"]
-    master.vm.hostname = "puppetmaster"
+    master.vm.hostname = "master.puppet-modules.loc"
 
     master.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "90"]
@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
 
     centos.vm.provision :shell, path: "./provision/agent-centos.sh", privileged: false
     centos.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777,fmode=777"]
-    centos.vm.hostname = "agent-centos"
+    centos.vm.hostname = "centos.puppet-modules.loc"
 
     centos.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--memory", "512"]
@@ -48,7 +48,7 @@ Vagrant.configure("2") do |config|
 
     ubuntu.vm.provision :shell, path: "./provision/agent-ubuntu.sh", privileged: false
     ubuntu.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777,fmode=777"]
-    ubuntu.vm.hostname = "agent-ubuntu"
+    ubuntu.vm.hostname = "ubuntu.puppet-modules.loc"
 
     ubuntu.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--memory", "512"]
