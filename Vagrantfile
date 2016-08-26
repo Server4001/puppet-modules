@@ -22,8 +22,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "agent-centos" do |centos|
-    centos.vm.box = "server4001/bento-puppet"
-    centos.vm.box_version = "0.1.0"
+    centos.vm.box = "bento/centos-6.7"
+    centos.vm.box_version = "2.2.7"
 
     centos.vm.network :private_network, ip: "192.168.37.12"
     centos.vm.network :forwarded_port, guest: 22, host: 4598, auto_correct: true
