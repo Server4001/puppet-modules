@@ -25,9 +25,9 @@ if [ ! -f /opt/puppetlabs/bin/puppet ]; then
     sudo cp /vagrant/config/puppet/autosign.conf /etc/puppetlabs/puppet/autosign.conf
 fi
 
-# Install r10k.
+# Install r10k and other ruby gems.
 if [ ! -f /opt/puppetlabs/puppet/bin/r10k ]; then
-    sudo /opt/puppetlabs/puppet/bin/gem install r10k
+    sudo /opt/puppetlabs/puppet/bin/gem install r10k pry
 fi
 
 # Create symlinks for puppet files.
