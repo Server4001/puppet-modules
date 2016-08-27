@@ -8,7 +8,12 @@ eyaml createkeys
 # ./keys/private_key.pkcs7.pem
 # ./keys/public_key.pkcs7.pem
 
-sudo mkdir -p /etc/puppetlabs/keys
-sudo cp /vagrant/config/puppet/keys/*.pem /etc/puppetlabs/keys/
-sudo chown puppet: /etc/puppetlabs/keys/*.pem
+sudo su
+mkdir -p /etc/puppetlabs/keys
+cp /vagrant/config/puppet/keys/*.pem /etc/puppetlabs/keys/
+chown -R puppet: /etc/puppetlabs/keys/
+chmod -R 0700 /etc/puppetlabs/keys/
+chmod 0400 /etc/puppetlabs/keys/*.pem
+exit
+
 sudo service puppetserver restart
