@@ -27,7 +27,8 @@ fi
 
 # Install r10k and other ruby gems.
 if [ ! -f /opt/puppetlabs/puppet/bin/r10k ]; then
-    sudo /opt/puppetlabs/puppet/bin/gem install r10k pry
+    sudo /opt/puppetlabs/bin/puppetserver gem install hiera-eyaml
+    sudo /opt/puppetlabs/puppet/bin/gem install r10k pry hiera-eyaml
 fi
 
 # Create symlinks for puppet files.
