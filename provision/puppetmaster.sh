@@ -15,6 +15,11 @@ if [ ! -f /usr/bin/vim ]; then
     yum install -y vim git tree man man-pages
 fi
 
+# Install gcc, etc.
+if [ ! -f /usr/bin/gcc ]; then
+    yum install -y gcc gcc-c++ autoconf automake
+fi
+
 # Install puppet.
 if [ ! -f /opt/puppetlabs/bin/puppet ]; then
     rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm
@@ -38,7 +43,7 @@ fi
 # Install r10k and other ruby gems.
 if [ ! -f /opt/puppetlabs/puppet/bin/r10k ]; then
     /opt/puppetlabs/bin/puppetserver gem install hiera-eyaml
-    /opt/puppetlabs/puppet/bin/gem install r10k pry hiera-eyaml
+    /opt/puppetlabs/puppet/bin/gem install r10k pry hiera-eyaml bundler
 fi
 
 # Create symlinks for puppet files.
