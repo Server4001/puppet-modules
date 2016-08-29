@@ -17,3 +17,6 @@ chmod 0400 /etc/puppetlabs/keys/*.pem
 exit
 
 sudo service puppetserver restart
+
+# Now, on an agent box, run:
+sudo puppet agent -t
