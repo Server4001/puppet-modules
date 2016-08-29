@@ -25,6 +25,10 @@ if [ ! -f /opt/puppetlabs/bin/puppet ]; then
     sudo apt-get update
     sudo apt-get install -y puppet-agent
     rm puppetlabs-release-pc1-wheezy.deb
+
+    sudo cp /vagrant/config/puppet/agent-ubuntu-puppet.conf /etc/puppetlabs/puppet/puppet.conf
+    sudo chmod 0644 /etc/puppetlabs/puppet/puppet.conf
+
     sudo /opt/puppetlabs/bin/puppet agent --enable
 fi
 

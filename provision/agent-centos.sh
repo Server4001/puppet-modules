@@ -16,6 +16,9 @@ fi
 if [ ! -f /opt/puppetlabs/bin/puppet ]; then
     sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm
     sudo yum install -y puppet-agent
+
+    sudo cp /vagrant/config/puppet/agent-centos-puppet.conf /etc/puppetlabs/puppet/puppet.conf
+    sudo chmod 0644 /etc/puppetlabs/puppet/puppet.conf
 fi
 
 # Start the puppet agent.

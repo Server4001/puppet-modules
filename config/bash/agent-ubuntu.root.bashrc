@@ -82,6 +82,9 @@ alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Customize the $PATH
+PATH=$PATH:/opt/puppetlabs/bin
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
