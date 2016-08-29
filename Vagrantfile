@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     master.vm.network :forwarded_port, guest: 22, host: 4597, auto_correct: true
 
     master.vm.provision :shell, path: "./provision/puppetmaster.sh", privileged: false
-    master.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777,fmode=777"]
+    master.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=775,fmode=664"]
     master.vm.hostname = "master.puppet-modules.loc"
 
     master.vm.provider "virtualbox" do |vb|
@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
     centos.vm.network :forwarded_port, guest: 22, host: 4598, auto_correct: true
 
     centos.vm.provision :shell, path: "./provision/agent-centos.sh", privileged: false
-    centos.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777,fmode=777"]
+    centos.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=775,fmode=664"]
     centos.vm.hostname = "centos.puppet-modules.loc"
 
     centos.vm.provider "virtualbox" do |vb|
@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
     ubuntu.vm.network :forwarded_port, guest: 22, host: 4599, auto_correct: true
 
     ubuntu.vm.provision :shell, path: "./provision/agent-ubuntu.sh", privileged: false
-    ubuntu.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=777,fmode=777"]
+    ubuntu.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=775,fmode=664"]
     ubuntu.vm.hostname = "ubuntu.puppet-modules.loc"
 
     ubuntu.vm.provider "virtualbox" do |vb|
