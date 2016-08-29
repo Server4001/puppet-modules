@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
     master.vm.network :private_network, ip: "192.168.37.11"
     master.vm.network :forwarded_port, guest: 22, host: 4597, auto_correct: true
 
-    master.vm.provision :shell, path: "./provision/puppetmaster.sh", privileged: false
+    master.vm.provision :shell, path: "./provision/puppetmaster.sh", privileged: true
     master.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=775,fmode=664"]
     master.vm.hostname = "master.puppet-modules.loc"
 
