@@ -12,6 +12,6 @@
 :json:
   :datadir: "/etc/puppetlabs/code/environments/%{::environment}/hieradata"
 :hierarchy:
-  - "node/%{::hostname}"
+  - "nodes/%{::hostname}"
   - "os/%{::kernel}"
   - common
