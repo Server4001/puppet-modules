@@ -1,7 +1,7 @@
 # Class: ntp::install
 # ===========================
 #
-# Install class manages the installation of the ntp package.
+# A class that manages the installation of the ntp package.
 #
 class ntp::install {
   case $::kernel {

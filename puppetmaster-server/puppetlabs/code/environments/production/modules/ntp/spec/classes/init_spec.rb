@@ -1,5 +1,6 @@
 require 'spec_helper'
 describe 'ntp' do
+
   context 'with default values for all parameters' do
     let(:facts) {{ :kernel => 'Linux' }}
 

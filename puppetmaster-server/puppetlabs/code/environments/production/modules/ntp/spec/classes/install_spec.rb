@@ -1,7 +1,9 @@
 require 'spec_helper'
 describe 'ntp::install' do
+
   context 'for a Linux based operating system' do
     let(:facts) {{ :kernel => 'Linux' }}
+
     it do
       should contain_package('ntp').with({
         'ensure' => 'installed',
@@ -11,6 +13,7 @@ describe 'ntp::install' do
 
   context 'for a Windows operating system' do
     let(:facts) {{ :kernel => 'Windows' }}
+
     it do
       should contain_package('meinberg-ntp').with({
         'ensure'   => 'latest',
@@ -21,6 +24,7 @@ describe 'ntp::install' do
 
   context 'for an unsupported operating system' do
     let(:facts) {{ :kernel => 'foo' }}
+
     it do
       expect {
         should contain_class('ntp::install')

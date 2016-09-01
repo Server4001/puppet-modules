@@ -8,9 +8,8 @@
 #
 # Document parameters here.
 #
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
+# * `servers`
+# An array of servers to use for syning server time.
 #
 # Examples
 # --------
@@ -30,6 +29,8 @@
 #
 # Copyright 2016 Bentler Design, unless otherwise noted.
 #
-class ntp {
-  contain 'ntp::install'
+class ntp (
+  $servers = $ntp::params::servers
+) inherits ntp::params {
+  contain 'ntp::install', 'ntp::config'
 }
