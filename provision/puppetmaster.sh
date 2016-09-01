@@ -3,6 +3,15 @@
 # Copy the hosts file.
 cp /vagrant/config/hosts/hosts.puppetmaster /etc/hosts
 
+# Use PST instead of UTC
+rm /etc/localtime
+ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+
+# Install ntp
+yum install -y ntp
+service ntpd start
+chkconfig ntpd on
+
 # Copy the .bashrc and bash_profile files.
 cp /vagrant/config/bash/puppetmaster.vagrant.bashrc /home/vagrant/.bashrc
 chown vagrant: /home/vagrant/.bashrc

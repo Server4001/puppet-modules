@@ -3,6 +3,10 @@
 # Copy the hosts file.
 sudo cp /vagrant/config/hosts/hosts.agent-ubuntu /etc/hosts
 
+# Use PST instead of UTC
+rm /etc/localtime
+ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+
 # Copy the .bashrc files.
 cp /vagrant/config/bash/agent-ubuntu.vagrant.bashrc /home/vagrant/.bashrc
 sudo cp /vagrant/config/bash/agent-ubuntu.root.bashrc /root/.bashrc
