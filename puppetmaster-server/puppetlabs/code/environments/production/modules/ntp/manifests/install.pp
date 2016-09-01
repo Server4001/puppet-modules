@@ -10,6 +10,12 @@ class ntp::install {
         ensure => installed,
       }
     }
+    'Windows': {
+      package { 'meinberg-ntp':
+        ensure   => latest,
+        provider => 'chocolatey',
+      }
+    }
     default: {
       fail("Sorry, ${::kernel} is unsupported by this ntp module!")
     }

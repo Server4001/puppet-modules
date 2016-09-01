@@ -9,6 +9,16 @@ describe 'ntp::install' do
     end
   end
 
+  context 'for a Windows operating system' do
+    let(:facts) {{ :kernel => 'Windows' }}
+    it do
+      should contain_package('meinberg-ntp').with({
+        'ensure'   => 'latest',
+        'provider' => 'chocolatey',
+      })
+    end
+  end
+
   context 'for an unsupported operating system' do
     let(:facts) {{ :kernel => 'foo' }}
     it do
