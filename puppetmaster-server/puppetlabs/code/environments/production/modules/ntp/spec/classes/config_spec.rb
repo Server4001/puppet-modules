@@ -11,6 +11,7 @@ describe 'ntp::config' do
         'owner'   => 'root',
         'group'   => 'root',
         'content' => /server 0.us.pool.ntp.org iburst\nserver 1.us.pool.ntp.org iburst\nserver 2.us.pool.ntp.org iburst\nserver 3.us.pool.ntp.org iburst/,
+        'notify'  => 'Service[ntp]',
       })
     end
   end
@@ -21,6 +22,7 @@ describe 'ntp::config' do
       should contain_file('c:\\ntp\\etc\\ntp.conf').with({
         'ensure'  => 'file',
         'content' => /server 0.us.pool.ntp.org iburst\nserver 1.us.pool.ntp.org iburst\nserver 2.us.pool.ntp.org iburst\nserver 3.us.pool.ntp.org iburst/,
+        'notify'  => 'Service[ntp]',
       })
     end
   end

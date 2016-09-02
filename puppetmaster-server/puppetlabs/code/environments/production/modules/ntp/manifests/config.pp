@@ -13,12 +13,14 @@ class ntp::config inherits ntp {
       owner   => 'root',
       group   => 'root',
       content => template('ntp/ntp.conf.erb'),
+      notify  =>  Service['ntp'],
     }
   }
   if ($::kernel == 'Windows') {
     file { 'c:\\ntp\\etc\\ntp.conf':
       ensure  => file,
       content => template('ntp/ntp.conf.erb'),
+      notify  => Service['ntp'],
       require => Package['meinberg-ntp'],
     }
   }
