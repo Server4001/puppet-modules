@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'ntp::service' do
 
   context 'for the RedHat Linux os' do
-    let(:facts) {{ :osfamily => 'RedHat' }}
+    let(:facts) {{ :kernel => 'Linux', :osfamily => 'RedHat' }}
 
     it do
       should contain_service('ntp').with({
@@ -14,7 +14,7 @@ describe 'ntp::service' do
   end
 
   context 'for the Debian Linux os' do
-    let(:facts) {{ :osfamily => 'Debian' }}
+    let(:facts) {{ :kernel => 'Linux', :osfamily => 'Debian' }}
 
     it do
       should contain_service('ntp').with({

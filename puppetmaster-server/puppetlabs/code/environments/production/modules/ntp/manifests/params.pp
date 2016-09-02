@@ -17,4 +17,9 @@ class ntp::params {
   if ($::kernel == 'Windows') {
     $config_file = 'c:\\ntp\\etc\\ntp.conf'
   }
+
+  $servicename = $::osfamily ? {
+    'RedHat' => 'ntpd',
+    default  => 'ntp',
+  }
 }

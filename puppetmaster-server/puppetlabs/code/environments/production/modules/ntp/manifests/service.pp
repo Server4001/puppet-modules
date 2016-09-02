@@ -3,11 +3,8 @@
 #
 # A class that manages the state of the ntp service.
 #
-class ntp::service {
-  $servicename = $::osfamily ? {
-    'RedHat' => 'ntpd',
-    default  => 'ntp',
-  }
+class ntp::service inherits ntp {
+  $servicename = $ntp::servicename
 
   service { 'ntp':
     name   => $servicename,
