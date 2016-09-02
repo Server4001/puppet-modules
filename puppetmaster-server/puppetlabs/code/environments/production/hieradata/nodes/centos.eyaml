@@ -9,3 +9,9 @@ hellolinux::server: >
   FyziekUcvafaJKHOqk0IozRJ0h1U2j6IFDoJ6+RAfS2GtzqpKZ921FbVKQuD
   U+XsOzBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBC6AnaZWhho3m+lt12y
   E9xtgCAAZE7CXcHCUXrd14B8DMrmvj+/8zv3/AL29ZT7I8tt/A==]
+
+ntp::servers:
+  - 0.centos.pool.ntp.org
+  - 1.centos.pool.ntp.org
+  - 2.centos.pool.ntp.org
+  - 3.centos.pool.ntp.org
