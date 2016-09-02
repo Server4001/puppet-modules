@@ -10,4 +10,11 @@ class ntp::params {
     '2.us.pool.ntp.org',
     '3.us.pool.ntp.org',
   ]
+
+  if ($::kernel == 'Linux') {
+    $config_file = '/etc/ntp.conf'
+  }
+  if ($::kernel == 'Windows') {
+    $config_file = 'c:\\ntp\\etc\\ntp.conf'
+  }
 }
