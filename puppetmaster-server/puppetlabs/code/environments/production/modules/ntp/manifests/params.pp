@@ -18,7 +18,7 @@ class ntp::params {
     $config_file = 'c:\\ntp\\etc\\ntp.conf'
   }
 
-  $servicename = $::osfamily ? {
+  $service_name = $::osfamily ? {
     'RedHat' => 'ntpd',
     default  => 'ntp',
   }

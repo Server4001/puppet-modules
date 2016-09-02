@@ -4,10 +4,10 @@
 # A class that manages the state of the ntp service.
 #
 class ntp::service inherits ntp {
-  $servicename = $ntp::servicename
+  $service_name = $ntp::service_name
 
   service { 'ntp':
-    name   => $servicename,
+    name   => $service_name,
     ensure => 'running',
     enable => true,
   }
