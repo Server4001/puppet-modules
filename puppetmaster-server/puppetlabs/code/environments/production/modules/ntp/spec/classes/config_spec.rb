@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'ntp::config' do
 
   context 'for a Linux distribution' do
-    let(:facts) {{ :kernel => 'Linux' }}
+    let(:facts) {{ :kernel => 'Linux', :osfamily => 'RedHat' }}
 
     it do
       should contain_file('ntp.conf').with({
@@ -18,7 +18,7 @@ describe 'ntp::config' do
   end
 
   context 'for a Windows distribution' do
-    let(:facts) {{ :kernel => 'Windows' }}
+    let(:facts) {{ :kernel => 'Windows', :osfamily => 'Windows' }}
 
     it do
       should contain_file('ntp.conf').with({
