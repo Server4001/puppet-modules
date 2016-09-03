@@ -1,12 +1,10 @@
 # Class: ntp
 # ===========================
 #
-# Installs and manages ntp.
+# Installs and configures ntp.
 #
 # Parameters
 # ----------
-#
-# Document parameters here.
 #
 # * `servers`
 # An array of servers to use for syning server time.

@@ -15,9 +15,17 @@ describe 'ntp::install' do
     let(:facts) {{ :kernel => 'Windows' }}
 
     it do
+      should contain_file('ntp-chocolatey-package').with({
+        'path'   => 'c:\\meinberg-ntp.4.2.8.nupkg',
+        'ensure' => 'file',
+        'source' => 'puppet:///modules/ntp/meinberg-ntp.4.2.8.nupkg',
+      })
+
       should contain_package('meinberg-ntp').with({
         'ensure'   => 'latest',
         'provider' => 'chocolatey',
+        'source'   => 'c:\\meinberg-ntp.4.2.8.nupkg',
+        'require'  => 'File[ntp-chocolatey-package]',
       })
     end
   end
