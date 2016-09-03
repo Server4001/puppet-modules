@@ -4,8 +4,8 @@
 sudo cp /vagrant/config/hosts/hosts.agent-centos /etc/hosts
 
 # Use PST instead of UTC
-rm /etc/localtime
-ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+sudo rm /etc/localtime
+sudo ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
 # Copy the .bashrc files.
 cp /vagrant/config/bash/agent-centos.vagrant.bashrc /home/vagrant/.bashrc
